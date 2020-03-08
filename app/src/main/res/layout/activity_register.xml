@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:padding="20dp"
+    tools:context=".RegisterActivity">
+
+    <EditText
+        android:id="@+id/txt_id"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="ID"
+        android:inputType="textEmailAddress"
+        android:shadowColor="#F6F5F5"
+        android:soundEffectsEnabled="false"
+        android:stateListAnimator="@android:anim/slide_in_left"
+        android:visibility="visible"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="82dp"
+        tools:layout_editor_absoluteY="106dp" />
+
+    <EditText
+        android:id="@+id/text_password"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:ems="10"
+        android:hint="Password"
+        android:inputType="textVisiblePassword"
+        android:shadowColor="#FDFAFA"
+        android:singleLine="false"
+        android:soundEffectsEnabled="false"
+        android:stateListAnimator="@android:anim/slide_in_left"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="88dp"
+        tools:layout_editor_absoluteY="215dp" />
+
+    <Button
+        android:id="@+id/btn_register"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Register"
+        android:textSize="25dp"
+        android:padding="16dp"
+        android:layout_marginTop="80dp"
+        tools:layout_editor_absoluteX="148dp"
+        tools:layout_editor_absoluteY="360dp"
+        tools:ignore="MissingConstraints" />
+</LinearLayout>

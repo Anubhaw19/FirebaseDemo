@@ -3,6 +3,7 @@ package com.example.firebasedemo;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
@@ -26,8 +27,8 @@ public class RegisterActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
 
-        id=(EditText)findViewById(R.id.txt_id);
-        password=(EditText)findViewById(R.id.text_password);
+        id=(EditText)findViewById(R.id.txt_id_reg);
+        password=(EditText)findViewById(R.id.txt_password_reg);
         register=(Button)findViewById(R.id.btn_register);
 
         auth=FirebaseAuth.getInstance(); //creating an object [auth] of [FirebaseAuth] class.
@@ -52,24 +53,26 @@ public class RegisterActivity extends AppCompatActivity {
                 }
 
             }
+        });
+    }
 
-            private void RegisterUser(String id, String password)
-            {
-            auth.createUserWithEmailAndPassword(id,password).addOnCompleteListener(RegisterActivity.this, new OnCompleteListener<AuthResult>() {
-                @Override
-                public void onComplete(@NonNull Task<AuthResult> task) {
-                    if(task.isSuccessful())
-                    {
-                        Toast.makeText(RegisterActivity.this,"Registration Successful",Toast.LENGTH_SHORT).show();
-                    }
-                    else
-                    {
-                        Toast.makeText(RegisterActivity.this,"Registration Failed",Toast.LENGTH_SHORT).show();
-                    }
+    private void RegisterUser(String id, String password)
+    {// calling a method [createUserWithEmailAndPassword] of FirebaseAuth class. for registering the user with 'id' and 'password'.
+        auth.createUserWithEmailAndPassword(id,password).addOnCompleteListener(RegisterActivity.this, new OnCompleteListener<AuthResult>() {
+            @Override
+            public void onComplete(@NonNull Task<AuthResult> task) {
+                if(task.isSuccessful())
+                {
+                    Toast.makeText(RegisterActivity.this,"Registration Successful",Toast.LENGTH_SHORT).show();
+                    startActivity(new Intent(RegisterActivity.this,MainActivity.class));
+                    finish();
                 }
-            });
-            // calling a method [createUserWithEmailAndPassword] of FirebaseAuth class. for registering the user with 'id' and 'password'.
+                else
+                {
+                    Toast.makeText(RegisterActivity.this,"Registration Failed",Toast.LENGTH_SHORT).show();
+                }
             }
         });
+
     }
 }
